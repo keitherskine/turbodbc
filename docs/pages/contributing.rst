@@ -52,17 +52,17 @@ Development version
 For developing new features or just sampling the latest version of turbodbc,
 do the following:
 
-1.  Make sure your development environment meets the prerequisites mentioned
+#.  Make sure your development environment meets the prerequisites mentioned
     in the :ref:`getting started guide <getting_started>`.
 
-2.  Create a Python virtual environment, activate it, and install the necessary
+#.  Create a Python virtual environment, activate it, and install the necessary
     packages numpy, pytest, and mock:
 
     ::
 
         pip install numpy pytest mock
 
-3.  Make sure you have a recent version of ``cmake`` installed. For some operating
+#.  Make sure you have a recent version of ``cmake`` installed. For some operating
     systems, binary wheels are available in addition to the package your operating
     system offers:
 
@@ -70,24 +70,21 @@ do the following:
 
         pip install cmake
 
-4.  Clone turbodbc into the virtual environment somewhere:
+#.  Clone turbodbc into the virtual environment somewhere:
 
     ::
 
         git clone https://github.com/blue-yonder/turbodbc.git
 
-5.  ``cd`` into the git repo and pull in the ``pybind11`` submodule by running:
+#.  ``cd`` into the git repo and pull in the ``pybind11`` submodule by running:
 
     ::
 
         git submodule update --init --recursive
 
-6.  Check the source build requirements (see below) are installed on your
-    computer.
+#.  Create a build directory somewhere and ``cd`` into it.
 
-7.  Create a build directory somewhere and ``cd`` into it.
-
-8.  Execute the following command:
+#.  Execute the following command:
 
     ::
 
@@ -97,9 +94,9 @@ do the following:
     specifically the directory containing ``setup.py``. This ``cmake`` command will
     prepare the build directory for the actual build step.
 
-9.  Run ``make``. This will build (compile) the source code.
+#.  Run ``make``. This will build (compile) the source code.
 
-10. At this point you can run the test suite. First, make a copy of the
+#.  At this point you can run the test suite. First, make a copy of the
     relevant json documents from the turbodbc ``python/turbodbc_test`` directory,
     there's one for each database. Then edit your copies with the relevant
     credentials. Next, set the environment variable ``TURBODBC_TEST_CONFIGURATION_FILES``
@@ -111,7 +108,7 @@ do the following:
         export TURBODBC_TEST_CONFIGURATION_FILES="<Postgres json file>,<MySql json file>, <MS SQL json file>"
         ctest --output-on-failure
 
-11. Finally, to create a Python source distribution for ``pip`` installation, run
+#.  Finally, to create a Python source distribution for ``pip`` installation, run
     the following from the build directory:
 
     ::
@@ -122,6 +119,3 @@ do the following:
 
     This will create a ``turbodbc-x.y.z.tar.gz`` file locally which can be used
     by others to install turbodbc with ``pip install turbodbc-x.y.z.tar.gz``.
-
-
-.. _GitHub: <https://github.com/blue-yonder/turbodbc>
