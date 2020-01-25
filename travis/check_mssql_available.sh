@@ -15,6 +15,7 @@ do
     echo "MSSQL apparently not available"
     exit 1
   fi
+
   echo "Call to MSSQL failed, trying again in 5 seconds..."
   sleep 5
   ((counter++))
