@@ -1,17 +1,18 @@
+os: linux
 dist: trusty
-sudo: required
+language: python
 
-matrix:
+jobs:
   include:
-  - os: osx
-    name: CPython2.7 Arrow 0.13.0
-    osx_image: xcode9.4
-    language: generic
-    env:
-    - TRAVIS_PYTHON_VERSION="2.7.12"
-    - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json"
-    - ODBC_DIR=odbc_osx
-    - TURBODBC_ARROW_VERSION=0.13.0
+#   - os: osx
+#     name: CPython2.7 Arrow 0.13.0
+#     osx_image: xcode9.4
+#     language: generic
+#     env:
+#     - TRAVIS_PYTHON_VERSION="2.7.12"
+#     - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json"
+#     - ODBC_DIR=odbc_osx
+#     - TURBODBC_ARROW_VERSION=0.13.0
 #  Disable for now until a workaround for the detection of pyenv versions by pybind11
 #  is found
 #  - os: osx
@@ -20,98 +21,98 @@ matrix:
 #    - TRAVIS_PYTHON_VERSION="3.6.0"
 #    - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json"
 #    - ODBC_DIR=odbc_osx
-  - os: linux
-    name: CPython2.7 Arrow 0.13.0
-    language: python
-    python: "2.7"
-    env:
-    - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mysql.json"
-    - ODBC_DIR=odbc
-    - TURBODBC_ARROW_VERSION=0.13.0
-  - os: linux
-    name: CPython3.5 Arrow 0.13.0
-    language: python
-    python: "3.5"
-    env:
-    - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mysql.json"
-    - ODBC_DIR=odbc
-    - TURBODBC_ARROW_VERSION=0.13.0
-  - os: linux
-    name: CPython3.6 Arrow 0.12.1
-    language: python
-    python: "3.6"
-    env:
-    - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mysql.json"
-    - ODBC_DIR=odbc
-    - TURBODBC_ARROW_VERSION=0.12.1
-  - os: linux
-    name: CPython3.6 Arrow 0.13.0
-    language: python
-    python: "3.6"
-    env:
-    - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mysql.json"
-    - ODBC_DIR=odbc
-    - TURBODBC_ARROW_VERSION=0.13.0
-  - os: linux
-    name: CPython3.7 Arrow 0.13.0
-    dist: xenial
-    language: python
-    addons:
-      apt:
-        packages:
-          - unixodbc
-          - unixodbc-dev
-          - odbc-postgresql
-    services:
-      - docker
-      - postgresql
-      - mysql
-    python: "3.7"
-    env:
-    - TURBODBC_USE_CONDA=yes
-    - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mssql.json"
-    - ODBC_DIR=odbc
-    - TURBODBC_ARROW_VERSION=0.13.0
-  - os: linux
-    name: CPython3.7 Arrow 0.14.1
-    dist: xenial
-    language: python
-    addons:
-      apt:
-        packages:
-          - unixodbc
-          - unixodbc-dev
-          - odbc-postgresql
-    services:
-      - docker
-      - postgresql
-      - mysql
-    python: "3.7"
-    env:
-    - TURBODBC_USE_CONDA=yes
-    - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mssql.json"
-    - ODBC_DIR=odbc
-    - TURBODBC_ARROW_VERSION=0.14.1
-  - os: linux
-    name: CPython3.7 Arrow 0.15.0
-    dist: xenial
-    language: python
-    addons:
-      apt:
-        packages:
-          - unixodbc
-          - unixodbc-dev
-          - odbc-postgresql
-    services:
-      - docker
-      - postgresql
-      - mysql
-    python: "3.7"
-    env:
-    - TURBODBC_USE_CONDA=yes
-    - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mssql.json"
-    - ODBC_DIR=odbc
-    - TURBODBC_ARROW_VERSION=0.15.0
+#   - os: linux
+#     name: CPython2.7 Arrow 0.13.0
+#     language: python
+#     python: "2.7"
+#     env:
+#     - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mysql.json"
+#     - ODBC_DIR=odbc
+#     - TURBODBC_ARROW_VERSION=0.13.0
+#   - os: linux
+#     name: CPython3.5 Arrow 0.13.0
+#     language: python
+#     python: "3.5"
+#     env:
+#     - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mysql.json"
+#     - ODBC_DIR=odbc
+#     - TURBODBC_ARROW_VERSION=0.13.0
+#   - os: linux
+#     name: CPython3.6 Arrow 0.12.1
+#     language: python
+#     python: "3.6"
+#     env:
+#     - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mysql.json"
+#     - ODBC_DIR=odbc
+#     - TURBODBC_ARROW_VERSION=0.12.1
+#   - os: linux
+#     name: CPython3.6 Arrow 0.13.0
+#     language: python
+#     python: "3.6"
+#     env:
+#     - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mysql.json"
+#     - ODBC_DIR=odbc
+#     - TURBODBC_ARROW_VERSION=0.13.0
+#   - os: linux
+#     name: CPython3.7 Arrow 0.13.0
+#     dist: xenial
+#     language: python
+#     addons:
+#       apt:
+#         packages:
+#           - unixodbc
+#           - unixodbc-dev
+#           - odbc-postgresql
+#     services:
+#       - docker
+#       - postgresql
+#       - mysql
+#     python: "3.7"
+#     env:
+#     - TURBODBC_USE_CONDA=yes
+#     - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mssql.json"
+#     - ODBC_DIR=odbc
+#     - TURBODBC_ARROW_VERSION=0.13.0
+#   - os: linux
+#     name: CPython3.7 Arrow 0.14.1
+#     dist: xenial
+#     language: python
+#     addons:
+#       apt:
+#         packages:
+#           - unixodbc
+#           - unixodbc-dev
+#           - odbc-postgresql
+#     services:
+#       - docker
+#       - postgresql
+#       - mysql
+#     python: "3.7"
+#     env:
+#     - TURBODBC_USE_CONDA=yes
+#     - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mssql.json"
+#     - ODBC_DIR=odbc
+#     - TURBODBC_ARROW_VERSION=0.14.1
+#   - os: linux
+#     name: CPython3.7 Arrow 0.15.0
+#     dist: xenial
+#     language: python
+#     addons:
+#       apt:
+#         packages:
+#           - unixodbc
+#           - unixodbc-dev
+#           - odbc-postgresql
+#     services:
+#       - docker
+#       - postgresql
+#       - mysql
+#     python: "3.7"
+#     env:
+#     - TURBODBC_USE_CONDA=yes
+#     - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json,query_fixtures_mssql.json"
+#     - ODBC_DIR=odbc
+#     - TURBODBC_ARROW_VERSION=0.15.0
   - os: linux
     name: CPython3.8 Arrow 0.15.1
     dist: xenial
@@ -254,10 +255,10 @@ script:
   - cd ..
   - cd python/turbodbc_test/
   - echo "Uploading Python coverage"
-  - bash <(curl -s https://codecov.io/bash) -s $PWD/gcov/ -s $PWD -X gcov
+  - #bash <(curl -s https://codecov.io/bash) -s $PWD/gcov/ -s $PWD -X gcov
   - cd ../..
   - echo "Uploading C++ coverage"
-  - bash <(curl -s https://codecov.io/bash) -s $PWD/gcov/ -X coveragepy -X gcov
+  - #bash <(curl -s https://codecov.io/bash) -s $PWD/gcov/ -X coveragepy -X gcov
 
   - cd build
   - cmake --build . --target install
@@ -272,14 +273,14 @@ script:
   - rm -rf dist
 
 
-deploy:
-  skip_cleanup: true
-  provider: pypi
-  server: "https://upload.pypi.org/legacy/"
-  user: __token__
-  on:
-    tags: true
-    os: linux
-    python: "2.7"
-    branch: master
-    repo: blue-yonder/turbodbc
+# deploy:
+#   skip_cleanup: true
+#   provider: pypi
+#   server: "https://upload.pypi.org/legacy/"
+#   user: __token__
+#   on:
+#     tags: true
+#     os: linux
+#     python: "2.7"
+#     branch: master
+#     repo: blue-yonder/turbodbc
