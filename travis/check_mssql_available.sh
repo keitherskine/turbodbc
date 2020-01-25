@@ -8,9 +8,11 @@ password=$4
 counter=1
 while true
 do
-  if docker exec -it "$container" /opt/mssql-tools/bin/sqlcmd -S "$server" -U "$user" -P "$password" -Q "SELECT @@VERSION"; then
+  if docker exec -it "$container" /opt/mssql-tools/bin/sqlcmd -S "$server" -U "$user" -P "XXXXXX" -Q "SELECT @@VERSION"; then
+    echo "MSSQL available"
     exit 0  # success
   fi
+
   if [ $counter -gt 3 ]; then
     echo "MSSQL apparently not available"
     exit 1
