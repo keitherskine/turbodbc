@@ -8,7 +8,7 @@ matrix:
     osx_image: xcode9.4
     language: generic
     env:
-    - TRAVIS_PYTHON_VERSION="2.7.13"
+    - TRAVIS_PYTHON_VERSION="2.7.12"
     - TURBODBC_TEST_CONFIGURATION_FILES="query_fixtures_postgresql.json"
     - ODBC_DIR=odbc_osx
     - TURBODBC_ARROW_VERSION=0.13.0
@@ -151,7 +151,6 @@ addons:
 before_install: |
   if [ "$TRAVIS_OS_NAME" == "osx" ]; then
     HOMEBREW_NO_AUTO_UPDATE=1 brew install unixodbc pyenv pyenv-virtualenv psqlodbc
-    #brew uninstall --ignore-dependencies openssl  # Python 2.7 fix (https://github.com/pyenv/pyenv/issues/950)
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     pyenv install ${TRAVIS_PYTHON_VERSION}
