@@ -150,7 +150,8 @@ addons:
 
 before_install: |
   if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-    HOMEBREW_NO_AUTO_UPDATE=1 brew install unixodbc pyenv-virtualenv pyenv-virtualenv psqlodbc
+    HOMEBREW_NO_AUTO_UPDATE=1 brew install unixodbc pyenv pyenv-virtualenv psqlodbc
+    brew uninstall --ignore-dependencies openssl  # Python 2.7 fix (https://github.com/pyenv/pyenv/issues/950)
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     pyenv install ${TRAVIS_PYTHON_VERSION}
