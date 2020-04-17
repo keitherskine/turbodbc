@@ -70,9 +70,9 @@ test_script:
 
     mysql -u root -e "CREATE DATABASE test_db;"
 
-    sqlcmd -S localhost\SQL2016 -U SA -P "Password12!" -Q "ALTER LOGIN SA WITH PASSWORD = 'StrongPassword1'"
+    sqlcmd -S localhost\SQL2017 -U SA -P "Password12!" -Q "ALTER LOGIN SA WITH PASSWORD = 'StrongPassword1'"
 
-    sqlcmd -S localhost\SQL2016 -U SA -P "StrongPassword1" -Q "CREATE DATABASE test_db"
+    sqlcmd -S localhost\SQL2017 -U SA -P "StrongPassword1" -Q "CREATE DATABASE test_db"
 
     ctest --verbose -C Release
 
