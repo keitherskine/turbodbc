@@ -1,28 +1,31 @@
 version: '{branch} - #{build}'
 
-image: Visual Studio 2015
+image: Visual Studio 2019
 
 platform:
   - x64
 
 environment:
-  BOOST_ROOT: C:\Libraries\boost_1_63_0
+  BOOST_ROOT: C:\Libraries\boost_1_71_0
   TURBODBC_TEST_CONFIGURATION_FILES: query_fixtures_postgresql.json,query_fixtures_mysql.json,query_fixtures_mssql.json
   MYSQL_PWD: Password12!
   PGUSER: postgres
   PGPASSWORD: Password12!
 
   matrix:
-    # first group
-    - PYTHON: C:\Python36-x64
-      PYTHON_VERSION: 3.6
+    # # first group
+    # - PYTHON: C:\Python36-x64
+    #   PYTHON_VERSION: 3.6
 
-    # second group
-    - PYTHON: C:\Python35-x64
-      PYTHON_VERSION: 3.5
+    # # second group
+    # - PYTHON: C:\Python35-x64
+    #   PYTHON_VERSION: 3.5
 
-    - PYTHON: C:\Python37-x64
-      PYTHON_VERSION: 3.7
+    # - PYTHON: C:\Python37-x64
+    #   PYTHON_VERSION: 3.7
+
+    - PYTHON: C:\Python38-x64
+      PYTHON_VERSION: 3.8
 
 services:
   - mysql
